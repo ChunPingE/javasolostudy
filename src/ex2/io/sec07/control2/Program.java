@@ -1,4 +1,4 @@
-package ex2.io.sec07.control;
+package ex2.io.sec07.control2;
 
 import java.util.Scanner;
 
@@ -25,14 +25,31 @@ public class Program {
 			System.out.print("국어1:");
 			kor1 = sc.nextInt();
 
-		
-		
+			do {
+				System.out.print("국어1:");
+				kor1 = sc.nextInt();
+				if (kor1 < 0 || kor1 > 100) {
+					System.out.println("성적 범위(0~100)을 벗어낫습니다.");
+				}
+			} while(kor1 < 0 || kor1 > 100);
+			
+			do {
+				System.out.print("국어2:");
+				kor2 = sc.nextInt();
+				if (kor2 < 0 || kor2 > 100) {
+					System.out.println("성적 범위(0~100)을 벗어낫습니다.");
+				}
+			} while(kor2 < 0 || kor2 > 100);
 
-			System.out.print("국어2:");
-			kor2 = sc.nextInt();
-			System.out.print("국어3:");
-			kor3 = sc.nextInt();
-
+			do {
+				System.out.print("국어3:");
+				kor3 = sc.nextInt();
+				if (kor3 < 0 || kor3 > 100) {
+					System.out.println("성적 범위(0~100)을 벗어낫습니다.");
+				}
+			} while(kor3 < 0 || kor3 > 100);
+			
+	
 			// -------성적출력부분------------------------------
 
 			total = kor1 + kor2 + kor3;
@@ -45,6 +62,7 @@ public class Program {
 			System.out.printf("\t국어1 : %3d\n", kor1);
 			System.out.printf("\t국어2 : %3d\n", kor2);
 			System.out.printf("\t국어3 : %3d\n", kor3);
+			
 			System.out.printf("\t총점 : %3d\n", total);
 			System.out.printf("\t평균 : %6.2f\n", avg);
 			System.out.println("──────────────────────────");
