@@ -11,5 +11,4 @@ public class A {
 		int total = b.total();
 		System.out.println(total);
 	}
-
 }
