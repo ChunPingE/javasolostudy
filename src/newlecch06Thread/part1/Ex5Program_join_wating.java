@@ -1,6 +1,6 @@
-package newlecch06Thread;
+package newlecch06Thread.part1;
 
-public class Ex6Program_interrupt {
+public class Ex5Program_join_wating {
 
 	public static void main(String[] args) {
 		
@@ -25,32 +25,23 @@ public class Ex6Program_interrupt {
 
 		if (th1.isAlive()) {
 			try {
-				th1.join(2000);
+				th1.join();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			th1.interrupt();
 		}
 		
 		System.out.println("main exit");
 	}
 
 	private static void print() {
-		Thread th = Thread.currentThread();
-		
-		for (int i = 0; i < 1000000000; i++) {
+		for (int i = 0; i < 100; i++) {
 			
+			Thread th = Thread.currentThread();
 			try {
 				th.sleep(20);
 			} catch (InterruptedException e) {
-				//e.printStackTrace();
-				System.out.println("누가나를 깨운거야");
-				return;
-			}
-			
-			if(th.isInterrupted()) {
-				System.out.println("------중지---");
-				return;
+				e.printStackTrace();
 			}
 			System.out.printf("%s[%d] : %d\n", th.getName(), th.getId(), i + 1);
 		}

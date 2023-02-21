@@ -1,10 +1,24 @@
-package newlecch06Thread;
+package newlecch06Thread.part1;
 
-public class Ex1Program {
+public class Ex2Program {
 
 	public static void main(String[] args) {
-		print1();
-		print2();
+		Thread th1 = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				print1();
+			}
+		});
+		
+		Thread th2 = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				print2();
+			}
+		});
+		
+		th1.start();
+		th2.start();
 
 		for (int i = 0; i < 100; i++) {
 			System.out.printf("main : %d\n", i + 1);

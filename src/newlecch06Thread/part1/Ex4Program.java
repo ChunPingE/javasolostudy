@@ -1,6 +1,6 @@
-package newlecch06Thread;
+package newlecch06Thread.part1;
 
-public class Ex7Program_Priority_Daemon {
+public class Ex4Program {
 
 	public static void main(String[] args) {
 		
@@ -13,25 +13,30 @@ public class Ex7Program_Priority_Daemon {
 		
 		Thread th1 = new Thread(subMain);
 		th1.setName("sub1");
-		Thread th2 = new Thread(subMain);
-		th2.setName("sub2");
-		th2.setPriority(Thread.MIN_PRIORITY);
-		th2.setDaemon(true);
+		
+		System.out.printf("%s : %s\n", th1.getName(), th1.getState());
 		
 		th1.start();
-		th2.start();
 
 		Thread th = Thread.currentThread();
-		th.setName("Main");
+		th.setName("MAIN");
 		print();
 		
-		System.out.println("==main exit===");
+		System.out.printf("%s : %s\n", th1.getName(), th1.getState());
+		
+		System.out.println("main exit");
 	}
 
 	private static void print() {
 		for (int i = 0; i < 100; i++) {
 			
 			Thread th = Thread.currentThread();
+			try {
+				th.sleep(20);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			System.out.printf("%s[%d] : %d\n", th.getName(), th.getId(), i + 1);
 		}
 	}

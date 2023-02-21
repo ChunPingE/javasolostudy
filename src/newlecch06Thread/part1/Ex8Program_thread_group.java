@@ -1,4 +1,4 @@
-package newlecch06Thread;
+package newlecch06Thread.part1;
 
 public class Ex8Program_thread_group {
 
