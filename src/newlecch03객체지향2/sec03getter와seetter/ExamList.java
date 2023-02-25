@@ -1,4 +1,4 @@
-package newlecch03객체지향2.sec02메소드;
+package newlecch03객체지향2.sec03getter와seetter;
 
 import java.util.Scanner;
 
@@ -35,9 +35,9 @@ public class ExamList {
 		for (int i = 0; i < size; i++) {
 			Exam exam = exams[i];
 
-			int kor = exam.kor;
-			int eng = exam.eng;
-			int math = exam.math;
+			int kor = exam.getKor(); //exam.kor;
+			int eng = exam.getEng();
+			int math = exam.getMath();
 
 			int total = kor + eng + math;
 			float avg = total / 3.0f;
@@ -90,9 +90,9 @@ public class ExamList {
 		} while (math < 0 || 100 < math);
 
 		Exam exam = new Exam();
-		exam.kor = kor;
-		exam.eng = eng;
-		exam.math = math;
+		exam.setKor(kor);//exam.kor = kor;
+		exam.setEng(eng);
+		exam.setMath(math);
 
 		Exam[] exams = this.exams;
 		int size = this.current;

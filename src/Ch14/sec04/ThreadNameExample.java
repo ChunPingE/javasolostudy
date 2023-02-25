@@ -24,5 +24,14 @@ public class ThreadNameExample {
 		};
 		chatThread.setName("chat-thread");
 		chatThread.start();
+	
+		/*
+		Thread chatThread2 = new Thread(() ->{
+			Thread td = Thread.currentThread();
+			System.out.println(td.getName() + " 실행");
+		});
+		chatThread2.setName("chat-thread2");
+		chatThread2.start();
+		*/
 	}
 }

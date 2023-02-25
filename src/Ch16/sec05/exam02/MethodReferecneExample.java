@@ -1,0 +1,8 @@
+package Ch16.sec05.exam02;
+
+public class MethodReferecneExample {
+	public static void main(String[] args) {
+		Person person = new Person();
+		person.ordering(String :: compareToIgnoreCase);
+	}
+}

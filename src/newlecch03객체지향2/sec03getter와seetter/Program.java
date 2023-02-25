@@ -1,4 +1,4 @@
-package newlecch03객체지향2.sec02메소드;
+package newlecch03객체지향2.sec03getter와seetter;
 
 import java.util.Scanner;
 

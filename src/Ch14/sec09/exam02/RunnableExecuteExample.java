@@ -31,6 +31,16 @@ public class RunnableExecuteExample {
 				}
 			});
 		}
+
+		/*
+		 * for (int i = 0; i < 1000; i++) { 
+		 * // 익명구현객체에서 i값이 final이 되기때문에 설정해서 값을 직접넣어준다
+		 * final int idx = i; executorService.execute(() ->{ Thread thread =
+		 * Thread.currentThread(); String from = mails[idx][0]; String to =
+		 * mails[idx][1]; String content = mails[idx][2];
+		 * System.out.printf("[%s] %s ==> %s: %s\n", thread.getName(), from, to,
+		 * content); }); }
+		 */
 		executorService.shutdown();
 	}
 }
