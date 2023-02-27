@@ -1,4 +1,4 @@
-package newlecch03객체지향2.sec03getter와seetter;
+package newlecch03객체지향2.sec04ui코드분리하기;
 
 public class Exam {
 	private int kor;

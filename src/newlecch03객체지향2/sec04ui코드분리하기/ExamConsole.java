@@ -1,22 +1,18 @@
-package newlecch03객체지향2.sec03getter와seetter;
+package newlecch03객체지향2.sec04ui코드분리하기;
 
 import java.util.Scanner;
 
-public class ExamList {
-	private Exam[] exams;
-	private int current;
+public class ExamConsole {
 
-	public ExamList() {
-		this(3);
+	private ExamList list;
+
+	public ExamConsole() {
+		list = new ExamList();
 	}
 
-	public ExamList(int size) {
-		exams = new Exam[size];
-		current = 0;
-	}
-
+	// 기본값 = 리스트의 개수
 	public void printList() {
-		printList(current);
+		printList(list.size());
 	}
 
 	public void printList(int size) {
@@ -25,10 +21,8 @@ public class ExamList {
 		System.out.println("└──────────────────────────┘");
 		System.out.println();
 
-		Exam[] exams = this.exams;
-
 		for (int i = 0; i < size; i++) {
-			Exam exam = exams[i];
+			Exam exam = list.get(i); // ;
 
 			int kor = exam.getKor(); // exam.kor;
 			int eng = exam.getEng();
@@ -84,33 +78,10 @@ public class ExamList {
 			}
 		} while (math < 0 || 100 < math);
 
-		/*
-		Exam exam = new Exam();
-		exam.setKor(kor);// exam.kor = kor;
-		exam.setEng(eng);
-		exam.setMath(math);
-		*/
-
 		Exam exam = new Exam(kor, eng, math);
 
-		Exam[] exams = this.exams;
-		int size = this.current;
-
-		if (exams.length == size) {
-			// 1.크기가 5개정도 더 큰 새로운 배열생성
-			Exam[] temp = new Exam[size + 5];
-			// 2.값이주
-			for (int i = 0; i < size; i++) {
-				temp[i] = exams[i];
-			}
-			// 3.list.exams가 새로만든 temp 배열참조
-			exams = temp;
-
-		}
-
-		exams[current] = exam;
-		current++;
-
+		// --------add ----------
+		list.add(exam);
 		System.out.println("────────────────────────");
 	}
 }
