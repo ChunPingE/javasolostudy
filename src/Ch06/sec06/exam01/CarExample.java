@@ -15,7 +15,7 @@ public class CarExample {
 
 		// Car 객체의 필드값 변경
 		myCar.speed = 60;
-		System.out.println("현재속도: " + myCar.speed); // 60
+		System.out.println("수정된속도: " + myCar.speed); // 60
 
 	}
 
