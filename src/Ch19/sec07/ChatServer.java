@@ -26,7 +26,7 @@ public class ChatServer {
 			try {
 				while (true) {
 					Socket socket = serverSocket.accept();
-					SocketClient sc = new SocketClient(this, socket);
+					SocketClient sc = new SocketClient(ChatServer.this, socket);
 					// ==SocketClient sc = new SocketClient(new ChatServer(), socket);
 				}
 			} catch (IOException e) {
@@ -80,25 +80,29 @@ public class ChatServer {
 		}
 	}
 
-	public static void main(String[] args) throws IOException {
-		ChatServer chatServer = new ChatServer();
-		// TCP서버시작
-		chatServer.start();
+	public static void main(String[] args) {
+		try {
+			ChatServer chatServer = new ChatServer();
+			// TCP서버시작
+			chatServer.start();
+			System.out.println("---------------------------------------");
+			System.out.println("서버 종료하려면 q또는 Q를 입력하고 엔터");
+			System.out.println("---------------------------------------");
 
-		System.out.println("---------------------------------------");
-		System.out.println("서버 종료하려면 q또는 Q를 입력하고 엔터");
-		System.out.println("---------------------------------------");
-
-		// 키보드 입력
-		Scanner sc = new Scanner(System.in);
-		while (true) {
-			String key = sc.nextLine();
-			if (key.toLowerCase().equals("q")) {
-				break;
+			// 키보드 입력
+			Scanner sc = new Scanner(System.in);
+			while (true) {
+				String key = sc.nextLine();
+				if (key.toLowerCase().equals("q")) {
+					break;
+				}
 			}
+			sc.close();
+			// TCP서버종료
+			chatServer.stop();
+		} catch (IOException e) {
+			System.out.println("[서버]" + e.getMessage());
 		}
-		sc.close();
-		// TCP서버종료
-		chatServer.stop();
+
 	}
 }
