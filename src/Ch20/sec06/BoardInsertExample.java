@@ -26,28 +26,27 @@ public class BoardInsertExample {
 
 			// --------------SQL------------
 			// 매개변수화된 SQL 문 작성
-			String sql = 
-					 "INSERT INTO boards (btitle, bcontent, bwriter, bdate, bfilename, bfiledata) " +
-					 "VALUES (?, ?, ?, now(), ?, ?)";
+			String sql = "INSERT INTO boards (btitle, bcontent, bwriter, bdate, bfilename, bfiledata) " +
+					"VALUES (?, ?, ?, now(), ?, ?)";
 
 			// PreparedStatement 얻기
 			PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			// 값넣기
-			pstmt.setString(1, "눈오는날4");
-			pstmt.setString(2, "함박눈이 내려요4");
+			pstmt.setString(1, "눈오는날7");
+			pstmt.setString(2, "함박눈이 내려요7");
 			pstmt.setString(3, "winter");
-			pstmt.setString(4, "4번");
+			pstmt.setString(4, "7번");
 			pstmt.setBlob(5, new FileInputStream("src/ch20/sec06/photo1.png"));
 
 			// sql문실행
 			int rows = pstmt.executeUpdate();
 			System.out.println("저장된 행수: " + rows);
-			
-			//bno값 얻기
-			if (rows ==1 ) {
+
+			// bno값 얻기
+			if (rows == 1) {
 				ResultSet rs = pstmt.getGeneratedKeys();
-				if (rs.next()) { //가져온 값이 있다면 실행
-					int bno = rs.getInt(1); //가져온 값중 1번
+				if (rs.next()) { // 가져온 값이 있다면 실행
+					int bno = rs.getInt(1); // 가져온 값중 1번
 					System.out.println("저장된 bno: " + bno);
 				}
 				rs.close();
